@@ -20,7 +20,12 @@ message FindEntitlementsByTokenIdRequest {
 }
 
 message FindEntitlementsByTokenIdResponse {
-	oneof entitlement_set_wrapper { EntitlementSet entitlement_set = 1; }
+	EntitlementToken entitlement_token = 1;
+}
+
+message EntitlementToken {
+	oneof something_wrapper { uint32 something = 1; }
+	EntitlementSet entitlement_set = 2;
 }
 
 message EntitlementSet {
