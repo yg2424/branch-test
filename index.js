@@ -5,7 +5,7 @@ const { messages } = require('../../stubs').entitlements;
 const functions = {
 	findEntitlementsByTokenString: function(call) {
 		return _functions.findEntitlementsByTokenString(
-			call.requrest.getToken()
+			call.request.getToken()
 		).then((entitlementSet) => {
 			const response = new messages.FindEntitlementsByTokenStringResponse();
 			response.setEntitlementSet(transformGrpc.fromMap(entitlementSet, messages.EntitlementSet));
@@ -14,7 +14,7 @@ const functions = {
 	},
 	findEntitlementsByTokenId: function(call) {
 		return _functions.findEntitlementsByTokenId(
-			call.requrest.getEntitlementTokenId()
+			call.request.getEntitlementTokenId()
 		).then((entitlementSet) => {
 			const response = new messages.FindEntitlementsByTokenIdResponse();
 			response.setEntitlementSet(transformGrpc.fromMap(entitlementSet, messages.EntitlementSet));
