@@ -12,7 +12,7 @@ message FindEntitlementsByTokenStringRequest {
 }
 
 message FindEntitlementsByTokenStringResponse {
-	oneof entitlement_set_wrapper { EntitlementSet entitlement_set = 1; }
+	EntitlementSet entitlement_set = 1;
 }
 
 message FindEntitlementsByTokenIdRequest {
@@ -20,7 +20,7 @@ message FindEntitlementsByTokenIdRequest {
 }
 
 message FindEntitlementsByTokenIdResponse {
-	oneof entitlement_set_wrapper { EntitlementSet entitlement_set = 1; }
+	EntitlementSet entitlement_set = 1;
 }
 
 message EntitlementSet {
