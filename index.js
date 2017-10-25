@@ -14,7 +14,7 @@ const functions = {
 	},
 	findEntitlementsByTokenId: function(call) {
 		return _functions.findEntitlementsByTokenId(
-			call.requrest.getEntitlementTokenId()
+			call.request.getEntitlementTokenId()
 		).then((entitlementSet) => {
 			const response = new messages.FindEntitlementsByTokenIdResponse();
 			response.setEntitlementSet(transformGrpc.fromMap(entitlementSet, messages.EntitlementSet));
