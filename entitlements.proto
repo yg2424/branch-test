@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package entitlements;
+
+service Entitlements {
+	rpc FindEntitlementsByTokenString(FindEntitlementsByTokenStringRequest) returns (FindEntitlementsByTokenStringResponse) {}
+	rpc FindEntitlementsByTokenId(FindEntitlementsByTokenIdRequest) returns (FindEntitlementsByTokenIdResponse) {}
+}
+
+message FindEntitlementsByTokenStringRequest {
+	oneof token_wrapper { string token = 1; }
+}
+
+message FindEntitlementsByTokenStringResponse {
+	oneof entitlement_set_wrapper { EntitlementSet entitlement_set = 1; }
+}
+
+message FindEntitlementsByTokenIdRequest {
+	oneof entitlement_token_id_wrapper { uint32 entitlement_token_id = 1; }
+}
+
+message FindEntitlementsByTokenIdResponse {
+	oneof entitlement_set_wrapper { EntitlementSet entitlement_set = 1; }
+}
+
+message EntitlementSet {
+	oneof entitler_id_wrapper { uint32 entitler_id = 1; }
+	oneof indication_wrapper { string indication = 2; }
+	oneof entitlements_wrapper { string entitlements = 3; }
+}
